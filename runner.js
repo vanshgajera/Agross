@@ -104,17 +104,21 @@ backendProc.on('error', (err) => {
   console.error('[Backend API] Failed to start backend:', err);
 });
 
-// 2. Start Mobile App Live Preview on port 8082
+// 2. Start Unified Ecosystem Portal on port 8080
+createStaticServer(ROOT_DIR, 8080, 'Ecosystem Portal');
+
+// 3. Start Mobile App Live Preview on port 8082
 createStaticServer(APP_PREVIEW_DIR, 8082, 'Mobile App Runner');
 
-// 3. Start Web Admin Portal on port 8081
+// 4. Start Web Admin Portal on port 8081
 createStaticServer(WEB_ADMIN_DIR, 8081, 'Web Admin Portal');
 
 console.log('----------------------------------------------------');
 console.log('✅ Services Launched:');
-console.log('📱 Mobile App Runner: http://localhost:8082');
-console.log('👑 Web Admin Portal:  http://localhost:8081');
-console.log('🔌 Backend REST API:  http://localhost:5001');
+console.log('🌐 Unified Ecosystem Portal: http://localhost:8080');
+console.log('📱 Mobile App Runner:       http://localhost:8082');
+console.log('👑 Web Admin Portal:        http://localhost:8081');
+console.log('🔌 Backend REST API:        http://localhost:5001');
 console.log('----------------------------------------------------');
 
 // Graceful shutdown
