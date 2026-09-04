@@ -3112,5 +3112,10 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Initial Start
-renderApp();
+// Initial Start with DOM Ready Guarantee
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderApp);
+} else {
+  renderApp();
+}
+window.addEventListener('load', renderApp);
