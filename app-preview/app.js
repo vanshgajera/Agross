@@ -1546,7 +1546,7 @@ function renderCart() {
   document.getElementById('btn-cart-proceed-payment').addEventListener('click', () => {
     const userObj = state.loggedInUserObj || {};
     state.deliveryAddress.name = document.getElementById('cart-cust-name').value.trim() || userObj.name || state.loggedInUser || 'Customer';
-    state.deliveryAddress.mobile = document.getElementById('cart-cust-phone').value.trim() || userObj.mobile || '';
+    state.deliveryAddress.mobile = document.getElementById('cart-cust-phone').value.trim() || userObj.mobile || '9876543210';
     state.deliveryAddress.city = document.getElementById('cart-cust-city').value.trim() || userObj.city || 'Surat, Gujarat';
     state.deliveryAddress.address = document.getElementById('cart-cust-addr').value.trim() || userObj.deliveryAddress || 'Surat, Gujarat';
     state.deliveryAddress.email = userObj.email || '';
