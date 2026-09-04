@@ -2693,7 +2693,7 @@ function renderLogin() {
           </div>
           <p style="font-size: 11px; color: #92400E; line-height: 1.4;">${state.pendingApprovalNotice}</p>
           <div style="margin-top: 8px; font-size: 10.5px; color: #B45309; font-weight: bold;">
-            👉 Open the <a href="http://localhost:8081" target="_blank" style="color: #1E40AF; text-decoration: underline;">Admin Portal</a> to approve this account.
+            👉 Open the <a href="../web-admin/index.html" target="_blank" style="color: #1E40AF; text-decoration: underline;">Admin Portal</a> to approve this account.
           </div>
         </div>
       ` : ''}
@@ -2790,7 +2790,13 @@ function renderLogin() {
         showToast(data.message || 'Login failed. Please verify credentials.');
       }
     } catch (err) {
-      // Offline / Static Live Demo Login Fallback
+      // Offline / Static Live Demo Login Fallback with Strict Pending Approval Check
+      if (state.pendingApprovalNotice) {
+        renderLogin();
+        showToast('⚠️ Approval Pending: Admin must approve first from Admin Panel!');
+        return;
+      }
+
       state.pendingApprovalNotice = null;
       state.currentRole = state.loginRole;
       state.loggedInUser = identifier || (state.loginRole === 'FARMER' ? 'Ramesh Patel' : 'Vansh Gajera');
