@@ -1,0 +1,413 @@
+{
+  "farmers": [
+    {
+      "id": "F-102",
+      "name": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "branch": "Surat",
+      "location": "Surat",
+      "mobile": "9090909090",
+      "email": "anasretiwala@gmail.com",
+      "password": "Anas@123",
+      "cropsListed": "Organic Vegetables & Fruits",
+      "totalSales": 440,
+      "bankUpi": "Anas@oksbi",
+      "status": "Verified",
+      "rating": 5,
+      "registeredAt": "2026-09-03 13:07"
+    }
+  ],
+  "customers": [
+    {
+      "id": "C-202",
+      "name": "vansh",
+      "mobile": "9078538640",
+      "email": "vansh@gmail.com",
+      "password": "Vansh@83",
+      "city": "surat, mota varachha",
+      "totalOrders": 3,
+      "totalSpent": 218,
+      "status": "Active",
+      "registeredAt": "2026-09-03 17:25"
+    },
+    {
+      "id": "C-201",
+      "name": "urvish  jivani",
+      "mobile": "9878979890",
+      "email": "urvishjivani@gmail.com",
+      "password": "Urvish@89",
+      "city": "Surat",
+      "deliveryAddress": "a-303 sarthi complex adajan  surat",
+      "totalOrders": 2,
+      "totalSpent": 239,
+      "status": "Active",
+      "registeredAt": "2026-09-03 12:41"
+    }
+  ],
+  "products": [
+    {
+      "id": "P-102",
+      "name": "Fresh Organic Broccoli",
+      "category": "Vegetables",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "branch": "Surat",
+      "price": 30,
+      "marketAvg": 38,
+      "unit": "kg",
+      "stock": 90,
+      "ordersCount": 10,
+      "location": "Surat",
+      "emoji": "🥦",
+      "image": "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?w=500&auto=format&fit=crop&q=80",
+      "description": "Naturally ripened farm-fresh produce harvested this morning."
+    },
+    {
+      "id": "P-103",
+      "name": "AR Organic Apple",
+      "category": "Fruits",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "branch": "Surat",
+      "price": 140,
+      "marketAvg": 175,
+      "unit": "kg",
+      "stock": 98,
+      "ordersCount": 1,
+      "location": "Surat",
+      "emoji": "🍎",
+      "description": "Naturally ripened farm-fresh produce harvested this morning.",
+      "image": "https://images.unsplash.com/photo-1560806887-1e4cd0b6cbd6?w=500&auto=format&fit=crop&q=80"
+    }
+  ],
+  "bills": [
+    {
+      "id": "AGR-8047",
+      "customer": "Customer",
+      "customerEmail": "",
+      "customerMobile": "9876543210",
+      "deliveryAddress": "Ring Road, Surat, Gujarat",
+      "items": "Fresh Organic Broccoli (5 kg)",
+      "itemsList": [
+        {
+          "id": "P-102",
+          "name": "Fresh Organic Broccoli",
+          "category": "Vegetables",
+          "price": 32,
+          "farmerPrice": 30,
+          "quantity": 5,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmName": "AR Organic",
+          "lineTotal": 160
+        }
+      ],
+      "farmerMentionedPrice": 30,
+      "farmerTotal": 150,
+      "subtotal": 160,
+      "delivery": 30,
+      "gst": 0,
+      "total": 190,
+      "method": "UPI Instant",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 17:44"
+    },
+    {
+      "id": "AGR-2094",
+      "customer": "vansh",
+      "customerEmail": "vansh@gmail.com",
+      "customerMobile": "9078538640",
+      "deliveryAddress": "surat, mota varachha",
+      "items": "Fresh Organic Broccoli (1 kg)",
+      "itemsList": [
+        {
+          "id": "P-102",
+          "name": "Fresh Organic Broccoli",
+          "category": "Vegetables",
+          "price": 32,
+          "farmerPrice": 30,
+          "quantity": 1,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmName": "AR Organic",
+          "lineTotal": 32
+        }
+      ],
+      "farmerMentionedPrice": 30,
+      "farmerTotal": 30,
+      "subtotal": 32,
+      "delivery": 30,
+      "gst": 0,
+      "total": 62,
+      "method": "UPI Instant",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 17:30"
+    },
+    {
+      "id": "AGR-1581",
+      "customer": "vansh",
+      "customerEmail": "vansh@gmail.com",
+      "customerMobile": "9078538640",
+      "deliveryAddress": "surat, mota varachha",
+      "items": "Fresh Organic Broccoli (1 kg)",
+      "itemsList": [
+        {
+          "id": "P-102",
+          "name": "Fresh Organic Broccoli",
+          "category": "Vegetables",
+          "price": 32,
+          "farmerPrice": 30,
+          "quantity": 1,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmName": "AR Organic",
+          "lineTotal": 32
+        }
+      ],
+      "farmerMentionedPrice": 30,
+      "farmerTotal": 30,
+      "subtotal": 32,
+      "delivery": 30,
+      "gst": 0,
+      "total": 62,
+      "method": "Cash on Delivery",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 17:29"
+    },
+    {
+      "id": "AGR-1419",
+      "customer": "vansh",
+      "customerEmail": "vansh@gmail.com",
+      "customerMobile": "9078538640",
+      "deliveryAddress": "surat, mota varachha",
+      "items": "Fresh Organic Broccoli (2 kg)",
+      "itemsList": [
+        {
+          "id": "P-102",
+          "name": "Fresh Organic Broccoli",
+          "category": "Vegetables",
+          "price": 32,
+          "farmerPrice": 30,
+          "quantity": 2,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmName": "AR Organic",
+          "lineTotal": 64
+        }
+      ],
+      "farmerMentionedPrice": 30,
+      "farmerTotal": 60,
+      "subtotal": 64,
+      "delivery": 30,
+      "gst": 0,
+      "total": 94,
+      "method": "UPI Instant",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 17:26"
+    },
+    {
+      "id": "AGR-9717",
+      "customer": "urvish  jivani",
+      "customerEmail": "urvishjivani@gmail.com",
+      "customerMobile": "9878979890",
+      "deliveryAddress": "a-303 sarthi complex adajan  surat",
+      "items": "Fresh Organic Broccoli (1 kg)",
+      "itemsList": [
+        {
+          "id": "P-102",
+          "name": "Fresh Organic Broccoli",
+          "category": "Vegetables",
+          "price": 32,
+          "farmerPrice": 30,
+          "quantity": 1,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmerEmail": "anasretiwala@gmail.com",
+          "farmName": "AR Organic",
+          "lineTotal": 32
+        }
+      ],
+      "farmerMentionedPrice": 30,
+      "farmerTotal": 30,
+      "subtotal": 32,
+      "delivery": 30,
+      "gst": 0,
+      "total": 62,
+      "method": "UPI Instant",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 16:01"
+    },
+    {
+      "id": "AGR-3048",
+      "customer": "urvish  jivani",
+      "customerEmail": "urvishjivani@gmail.com",
+      "customerMobile": "9878979890",
+      "deliveryAddress": "a-303 sarthi complex adajan  surat",
+      "items": "AR Organic Apple (1 kg)",
+      "itemsList": [
+        {
+          "id": "P-103",
+          "name": "AR Organic Apple",
+          "category": "Fruits",
+          "price": 147,
+          "farmerPrice": 140,
+          "quantity": 1,
+          "unit": "kg",
+          "farmer": "Anash Retiwala",
+          "farmerEmail": "anasretiwala@gmail.com",
+          "farmName": "AR Organic",
+          "lineTotal": 147
+        }
+      ],
+      "farmerMentionedPrice": 140,
+      "farmerTotal": 140,
+      "subtotal": 147,
+      "delivery": 30,
+      "gst": 0,
+      "total": 177,
+      "method": "UPI Instant",
+      "status": "Paid",
+      "farmerName": "Anash Retiwala",
+      "farmerEmail": "anasretiwala@gmail.com",
+      "farmName": "AR Organic",
+      "farmBranch": "Surat",
+      "date": "2026-09-03 13:37"
+    }
+  ],
+  "payouts": [
+    {
+      "id": "PAY-4952",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-8047",
+      "grossAmount": 160,
+      "commissionRate": 5,
+      "netAmount": 150,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "PAY-8381",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-2094",
+      "grossAmount": 32,
+      "commissionRate": 5,
+      "netAmount": 30,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "PAY-3699",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-1581",
+      "grossAmount": 32,
+      "commissionRate": 5,
+      "netAmount": 30,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "PAY-8547",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-1419",
+      "grossAmount": 64,
+      "commissionRate": 5,
+      "netAmount": 60,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "PAY-9405",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-9717",
+      "grossAmount": 32,
+      "commissionRate": 5,
+      "netAmount": 30,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    },
+    {
+      "id": "PAY-4545",
+      "farmer": "Anash Retiwala",
+      "farmName": "AR Organic",
+      "bankUpi": "Anas@oksbi",
+      "billId": "AGR-3048",
+      "grossAmount": 147,
+      "commissionRate": 7,
+      "netAmount": 140,
+      "status": "Settled",
+      "dueDate": "2026-09-03"
+    }
+  ],
+  "withdrawals": [
+    {
+      "id": "WTH-7996",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "amount": 210,
+      "bankUpi": "Anas@oksbi",
+      "status": "Completed",
+      "date": "2026-09-03 17:45"
+    },
+    {
+      "id": "WTH-8246",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "amount": 60,
+      "bankUpi": "Anas@oksbi",
+      "status": "Completed",
+      "date": "2026-09-03 17:28"
+    },
+    {
+      "id": "WTH-3102",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "amount": 30,
+      "bankUpi": "Anas@oksbi",
+      "status": "Completed",
+      "date": "2026-09-03 16:03"
+    },
+    {
+      "id": "WTH-4283",
+      "farmer": "Anash Retiwala",
+      "farmerId": "F-102",
+      "amount": 140,
+      "bankUpi": "Anas@oksbi",
+      "status": "Completed",
+      "date": "2026-09-03 13:44"
+    }
+  ]
+}

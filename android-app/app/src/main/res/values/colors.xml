@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="agross_primary">#1E7E34</color>
+    <color name="agross_primary_variant">#155724</color>
+    <color name="agross_secondary">#28A745</color>
+    <color name="agross_accent">#F59E0B</color>
+    <color name="agross_background">#F8FAF8</color>
+    <color name="agross_surface">#FFFFFF</color>
+</resources>

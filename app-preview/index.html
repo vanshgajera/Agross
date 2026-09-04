@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agross - Farm to Fork Mobile App Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Background Workbench -->
+  <div class="workbench-bg">
+    <!-- Header Controls for Desktop Workbench -->
+    <header class="workbench-header">
+      <div class="brand">
+        <span class="brand-badge">LIVE APP PREVIEW</span>
+        <h1>🌱 Agross Mobile App Runner</h1>
+        <p>Real-time interactive Kotlin Jetpack Compose UI replica running on local server</p>
+      </div>
+
+      <div class="device-toolbar">
+        <div class="role-indicator" id="workbench-role-badge">
+          <span class="dot"></span>
+          <span id="workbench-role-text">Customer Mode</span>
+        </div>
+        <a href="http://localhost:8081" target="_blank" class="btn-tb highlight" style="text-decoration: none; display: flex; align-items: center; gap: 4px;">👑 Admin Portal</a>
+        <button class="btn-tb" id="btn-device-toggle" title="Switch Device Frame">📱 Pixel 8 / iPhone</button>
+        <button class="btn-tb" id="btn-reset-demo">↺ Reset Demo</button>
+      </div>
+    </header>
+
+    <!-- Main Workspace with Phone Frame -->
+    <main class="workbench-viewport">
+      <!-- Mobile Device Mockup -->
+      <div class="device-frame" id="device-container">
+        <!-- Physical Device Bezel & Speaker/Dynamic Island -->
+        <div class="device-notch">
+          <div class="camera-lens"></div>
+          <div class="speaker-grill"></div>
+        </div>
+
+        <!-- Phone Status Bar -->
+        <div class="device-status-bar">
+          <span class="time" id="status-time">09:41</span>
+          <div class="status-icons">
+            <span class="icon">📶 5G</span>
+            <span class="icon">100% 🔋</span>
+          </div>
+        </div>
+
+        <!-- App Screen Root (Scrollable Container) -->
+        <div class="app-screen-container" id="app-viewport">
+          
+          <!-- TOP APP BAR (Permanent Component) -->
+          <div class="agross-topbar" id="app-topbar">
+            <div class="topbar-row">
+              <!-- Brand Identity -->
+              <div class="topbar-brand" id="brand-home-btn">
+                <div class="logo-box">🌾</div>
+                <div class="brand-text">
+                  <div class="title-row">
+                    <span class="app-title">Agross</span>
+                    <span class="produce-pill">PRODUCE</span>
+                  </div>
+                  <span class="app-slogan">Farm to Fork Marketplace</span>
+                </div>
+              </div>
+
+              <!-- Top Bar Actions (Login, Register or User Profile, Cart) -->
+              <div class="topbar-actions" id="topbar-actions-container">
+                <!-- Dynamic based on Auth State -->
+              </div>
+            </div>
+          </div>
+
+          <!-- DYNAMIC SCREEN CONTENT -->
+          <div class="screen-content-area" id="screen-container">
+            <!-- Screen injected here via app.js -->
+          </div>
+
+          <!-- BOTTOM NAVIGATION BAR -->
+          <nav class="agross-bottom-nav" id="app-bottom-nav">
+            <button class="nav-item active" id="nav-btn-home">
+              <span class="nav-icon">🏠</span>
+              <span class="nav-label">Home</span>
+            </button>
+            <button class="nav-item" id="nav-btn-market">
+              <span class="nav-icon">🏬</span>
+              <span class="nav-label">Market</span>
+            </button>
+            <button class="nav-item special-tab" id="nav-btn-role-action">
+              <span class="nav-icon" id="nav-role-icon">🛒</span>
+              <span class="nav-label" id="nav-role-label">Cart</span>
+            </button>
+            <button class="nav-item" id="nav-btn-account">
+              <span class="nav-icon">👤</span>
+              <span class="nav-label">Account</span>
+            </button>
+          </nav>
+
+          <!-- Toast Notification Overlay -->
+          <div class="toast-popup" id="toast-message"></div>
+
+        </div> <!-- End App Viewport -->
+
+        <!-- Home Bar Indicator -->
+        <div class="device-home-bar"></div>
+      </div>
+
+      <!-- Quick Inspection Side Panel -->
+      <aside class="quick-inspector">
+        <div class="inspector-card">
+          <div class="card-header">
+            <h3>⚡ Interactive Features</h3>
+            <span class="live-pill">CONNECTED</span>
+          </div>
+          <p class="card-desc">Interact with the mobile app on the left just like on a real phone:</p>
+          <ul class="features-list">
+            <li>
+              <strong>Top Bar Actions:</strong> Click <em>Login</em> or <em>Register</em> directly from the top bar.
+            </li>
+            <li>
+              <strong>Dual Role Switcher:</strong> Switch between <em>Farmer Panel</em> (crop listings, bank payouts) & <em>Customer Panel</em> (fresh produce shopping).
+            </li>
+            <li>
+              <strong>Live Categories & Search:</strong> Filter by Vegetables, Fruits, Grains, or type keywords in the search bar.
+            </li>
+            <li>
+              <strong>Add to Cart:</strong> Tap the "+" button on any produce card to increment your cart counter in real-time.
+            </li>
+            <li>
+              <strong>Farmer Portal CTA:</strong> Click <em>Sell Now</em> to test the Farmer onboarding flow.
+            </li>
+          </ul>
+        </div>
+
+        <div class="inspector-card">
+          <div class="card-header">
+            <h3>📂 Kotlin Source Link</h3>
+          </div>
+          <div class="source-pills">
+            <span class="source-tag">MainActivity.kt</span>
+            <span class="source-tag">DashboardScreen.kt</span>
+            <span class="source-tag">LoginScreen.kt</span>
+            <span class="source-tag">RegisterScreen.kt</span>
+            <span class="source-tag">AgrossTopBar.kt</span>
+          </div>
+          <p class="source-note">Located in: <code>android-app/app/src/main/java/com/agross/app/</code></p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

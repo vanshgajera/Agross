@@ -1,0 +1,19 @@
+{
+  "name": "agross-platform",
+  "version": "1.0.0",
+  "description": "Agross - Farm to Fork Agricultural Commerce Ecosystem",
+  "main": "runner.js",
+  "scripts": {
+    "start": "node runner.js",
+    "dev": "node runner.js",
+    "backend": "cd backend && npm start"
+  },
+  "keywords": [
+    "agross",
+    "agriculture",
+    "marketplace",
+    "ecommerce"
+  ],
+  "author": "Agross Team",
+  "license": "ISC"
+}

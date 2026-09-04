@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agross Admin Portal - Control & Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       1. ADMIN AUTHENTICATION SCREEN (ATTRACTIVE & MODERN SAAS DESIGN)
+       ========================================================================= -->
+  <div id="admin-login-view" class="auth-wrapper">
+    <div class="auth-bg-decorations">
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+      <div class="grid-pattern-overlay"></div>
+    </div>
+
+    <div class="login-card-container">
+      <div class="login-brand-header">
+        <div class="brand-badge-row">
+          <span class="security-badge">🛡️ AGROSS CONTROL SUITE</span>
+        </div>
+        <div class="logo-box-admin">🌱</div>
+        <h1>Admin Control Portal</h1>
+        <p>Direct Farm-to-Fork Multi-Role Platform Management</p>
+      </div>
+
+      <!-- Quick 1-Click Test Credential Helper -->
+      <div class="credential-hint-box">
+        <div class="hint-text">
+          <span class="hint-title">🔑 Super Admin Credentials</span>
+          <div class="hint-credentials-row">
+            <code>admin@gmail.com</code> • <code>admin8389123</code>
+          </div>
+        </div>
+        <button type="button" class="btn-autofill" id="btn-quick-fill" title="Click to fill admin credentials">
+          ⚡ Auto Fill
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <form id="admin-login-form">
+        <div class="form-field">
+          <label for="admin-email">Admin Email Address</label>
+          <div class="input-with-icon">
+            <span class="field-icon">✉️</span>
+            <input 
+              type="email" 
+              id="admin-email" 
+              placeholder="e.g. admin@gmail.com" 
+              required 
+              autocomplete="username"
+            >
+          </div>
+        </div>
+
+        <div class="form-field">
+          <div class="label-row">
+            <label for="admin-password">Master Password</label>
+            <span class="toggle-pw-btn" id="btn-toggle-pw">Show</span>
+          </div>
+          <div class="input-with-icon">
+            <span class="field-icon">🔒</span>
+            <input 
+              type="password" 
+              id="admin-password" 
+              placeholder="Enter your master password" 
+              required 
+              autocomplete="current-password"
+            >
+          </div>
+        </div>
+
+        <div class="login-options-row">
+          <label class="remember-checkbox">
+            <input type="checkbox" id="admin-remember" checked> Keep session active
+          </label>
+          <span class="security-tag">✓ 256-Bit SSL Encrypted</span>
+        </div>
+
+        <div id="login-error-alert" class="login-error-alert"></div>
+
+        <button type="submit" class="btn-admin-login" id="btn-login-submit">
+          <span>🚀 Sign In to Admin Control Panel</span>
+          <span class="arrow">➔</span>
+        </button>
+      </form>
+
+      <div class="login-footer">
+        <div class="login-footer-badge">🟢 System Online • Agross Platform v2.4</div>
+        <p>Central Control for Farmers, Customers, Payouts & Marketplace</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- =========================================================================
+       2. ADMIN MAIN DASHBOARD & MANAGEMENT PORTAL (AFTER AUTHENTICATION)
+       ========================================================================= -->
+  <div id="admin-portal-view" class="portal-wrapper" style="display: none;">
+    
+    <!-- LEFT NAVIGATION SIDEBAR -->
+    <aside class="admin-sidebar">
+      <div class="sidebar-header">
+        <div class="sidebar-brand">
+          <div class="brand-icon">🌾</div>
+          <div class="brand-info">
+            <h2>Agross Admin</h2>
+            <span class="badge-role">SUPER ADMIN</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">MAIN WORKSPACE</div>
+        
+        <button class="nav-link active" data-tab="overview">
+          <span class="icon">📊</span>
+          <span class="title">Overview</span>
+        </button>
+
+        <button class="nav-link" data-tab="farmers">
+          <span class="icon">👨‍🌾</span>
+          <span class="title">Farmers</span>
+          <span class="count-pill" id="badge-farmer-count">0</span>
+        </button>
+
+        <button class="nav-link" data-tab="customers">
+          <span class="icon">🛒</span>
+          <span class="title">Customers</span>
+          <span class="count-pill" id="badge-customers-count">0</span>
+        </button>
+
+        <button class="nav-link" data-tab="products">
+          <span class="icon">🥦</span>
+          <span class="title">Produce & Pricing</span>
+          <span class="count-pill" id="badge-produce-count">0</span>
+        </button>
+
+        <div class="nav-section-title">FINANCIAL & BILLING</div>
+
+        <button class="nav-link" data-tab="bills">
+          <span class="icon">🧾</span>
+          <span class="title">Customer Bills</span>
+          <span class="count-pill" id="badge-bills-count">0</span>
+        </button>
+
+        <button class="nav-link" data-tab="payments">
+          <span class="icon">💳</span>
+          <span class="title">Farmer Payouts</span>
+          <span class="count-pill" id="badge-pending-payouts">0</span>
+        </button>
+
+        <div class="nav-section-title">SYSTEM</div>
+
+        <a href="http://localhost:8082" target="_blank" class="nav-link external-link" title="Open Mobile App in new tab">
+          <span class="icon">📱</span>
+          <span class="title">Mobile App Runner</span>
+          <span class="link-arrow">↗</span>
+        </a>
+      </nav>
+
+      <!-- Admin Profile Card in Sidebar -->
+      <div class="sidebar-footer">
+        <div class="admin-user-card">
+          <div class="user-avatar">👑</div>
+          <div class="user-meta">
+            <span class="name">Super Admin</span>
+            <span class="email">admin@gmail.com</span>
+          </div>
+          <button class="btn-logout" id="btn-admin-logout" title="Sign out of Admin Portal">🚪</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT VIEWPORT -->
+    <main class="portal-main-area">
+      <!-- Top Contextual App Bar (Timer Removed) -->
+      <header class="portal-header">
+        <div class="header-titles">
+          <h1 id="page-title">Overview Dashboard</h1>
+          <p id="page-subtitle">Real-time marketplace monitoring & transaction metrics</p>
+        </div>
+
+        <div class="header-actions">
+          <span class="security-badge" style="font-size: 11px; padding: 6px 14px; border-radius: 12px; background: rgba(16, 185, 129, 0.12); color: #34D399; border: 1px solid rgba(16, 185, 129, 0.25);">
+            🛡️ Admin Control Suite
+          </span>
+        </div>
+      </header>
+
+      <!-- TAB CONTENT PANES -->
+      <div class="tab-content-container">
+
+        <!-- ===================================================================
+             TAB 1: DASHBOARD OVERVIEW
+             =================================================================== -->
+        <section id="tab-overview" class="tab-pane active">
+          <!-- Quick Stat KPI Cards -->
+          <div class="kpi-grid">
+            <div class="kpi-card emerald">
+              <div class="kpi-icon-box">💰</div>
+              <div class="kpi-info">
+                <span class="kpi-label">Total Market Revenue</span>
+                <h3 class="kpi-value" id="kpi-total-revenue">₹0</h3>
+                <span class="kpi-trend positive" id="kpi-revenue-trend">All Customer Payments</span>
+              </div>
+            </div>
+
+            <div class="kpi-card amber">
+              <div class="kpi-icon-box">👨‍🌾</div>
+              <div class="kpi-info">
+                <span class="kpi-label">Registered Farmers</span>
+                <h3 class="kpi-value" id="kpi-total-farmers">0</h3>
+                <span class="kpi-trend neutral" id="kpi-farmers-trend">Direct Sellers</span>
+              </div>
+            </div>
+
+            <div class="kpi-card blue">
+              <div class="kpi-icon-box">🛒</div>
+              <div class="kpi-info">
+                <span class="kpi-label">Active Customers</span>
+                <h3 class="kpi-value" id="kpi-active-customers">0</h3>
+                <span class="kpi-trend positive">Verified Buyers</span>
+              </div>
+            </div>
+
+            <div class="kpi-card purple">
+              <div class="kpi-icon-box">📈</div>
+              <div class="kpi-info">
+                <span class="kpi-label">App Platform Earnings</span>
+                <h3 class="kpi-value" id="kpi-app-earnings">₹0</h3>
+                <span class="kpi-trend positive" id="kpi-earnings-trend">5% Margin on Sold Produce</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Action & Alert Banner -->
+          <div class="action-alert-banner">
+            <div class="alert-content">
+              <span class="alert-icon">⚡</span>
+              <div>
+                <h4>Pending Farmer Payout Approvals</h4>
+                <p>2 local farmers have completed verified vegetable deliveries and requested bank transfer.</p>
+              </div>
+            </div>
+            <button class="btn-banner-action" id="btn-jump-payouts">Review & Approve Payouts</button>
+          </div>
+
+          <!-- Split Two Columns (Recent Orders vs Top Produce) -->
+          <div class="dashboard-grid-split">
+            <!-- Left: Recent Customer Orders -->
+            <div class="content-panel">
+              <div class="panel-header">
+                <h3>Recent Customer Orders & Bills</h3>
+                <button class="panel-action-btn" id="btn-view-all-bills">View All Bills</button>
+              </div>
+              <div class="table-responsive">
+                <table class="data-table">
+                  <thead>
+                    <tr>
+                      <th>Invoice ID</th>
+                      <th>Customer</th>
+                      <th>Items</th>
+                      <th>Total</th>
+                      <th>Payment</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table-recent-orders-body">
+                    <!-- Populated via JS -->
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Right: Farmer Produce Inventory Overview -->
+            <div class="content-panel">
+              <div class="panel-header">
+                <h3>Live Produce Stock & Fair Pricing</h3>
+                <button class="panel-action-btn" id="btn-view-all-produce">Manage Produce</button>
+              </div>
+              <div class="produce-mini-list" id="mini-produce-container">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 2: FARMERS MANAGEMENT
+             =================================================================== -->
+        <section id="tab-farmers" class="tab-pane">
+          <div class="content-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Farmers Directory & Verification</h3>
+                <p class="panel-subtitle">Review farmer registrations, crop certifications, and KYC verification</p>
+              </div>
+              <div class="panel-tools">
+                <button class="btn-primary" id="btn-add-farmer-modal">+ Register New Farmer</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Farmer Name</th>
+                    <th>Farm Name & District</th>
+                    <th>Mobile</th>
+                    <th>Produce Listed</th>
+                    <th>Total Sales</th>
+                    <th>UPI / Bank ID</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="table-farmers-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 3: CUSTOMERS MANAGEMENT
+             =================================================================== -->
+        <section id="tab-customers" class="tab-pane">
+          <div class="content-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Customers Directory</h3>
+                <p class="panel-subtitle">Manage customer accounts, delivery addresses, and purchase history</p>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Customer Name</th>
+                    <th>Mobile</th>
+                    <th>Email</th>
+                    <th>Delivery City</th>
+                    <th>Total Orders</th>
+                    <th>Total Spent</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="table-customers-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 4: PRODUCE & PRICING
+             =================================================================== -->
+        <section id="tab-products" class="tab-pane">
+          <div class="content-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Produce Catalog & Price Regulation</h3>
+                <p class="panel-subtitle">Ensure fair market prices for vegetables and fruits with 0% middleman gouging</p>
+              </div>
+              <div class="panel-tools">
+                <button class="btn-primary" id="btn-add-produce-modal">+ Add Produce Listing</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Produce</th>
+                    <th>Category</th>
+                    <th>Farmer & Farm Branch</th>
+                    <th>Farmer Price</th>
+                    <th>Market Price (+5%)</th>
+                    <th>Available Stock</th>
+                    <th>Quality Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="table-produce-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 5: CUSTOMER BILLS & INVOICES
+             =================================================================== -->
+        <section id="tab-bills" class="tab-pane">
+          <div class="content-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Customer Bills & Tax Invoices</h3>
+                <p class="panel-subtitle">Audit completed payments, order receipts, and tax calculations</p>
+              </div>
+              <div class="panel-tools">
+                <button class="btn-secondary" id="btn-export-bills">📥 Export Excel/CSV</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Invoice No</th>
+                    <th>Customer Name</th>
+                    <th>Items Ordered</th>
+                    <th>Subtotal</th>
+                    <th>Tax (GST)</th>
+                    <th>Grand Total</th>
+                    <th>Payment Method</th>
+                    <th>Status</th>
+                    <th>Invoice</th>
+                  </tr>
+                </thead>
+                <tbody id="table-bills-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===================================================================
+             TAB 6: FARMERS PAYMENTS & SETTLEMENTS
+             =================================================================== -->
+        <section id="tab-payments" class="tab-pane">
+          <div class="content-panel">
+            <div class="panel-header">
+              <div>
+                <h3>Farmers Direct Payouts & Settlements</h3>
+                <p class="panel-subtitle">Release direct payments to farmer bank accounts & UPI with zero commission</p>
+              </div>
+              <div class="panel-tools">
+                <button class="btn-primary" id="btn-approve-all-payouts">⚡ Approve All Pending Payouts</button>
+              </div>
+            </div>
+
+            <div class="table-responsive">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Payout ID</th>
+                    <th>Farmer Name</th>
+                    <th>Farm Name</th>
+                    <th>Produce Sold</th>
+                    <th>Net Amount</th>
+                    <th>Bank / UPI ID</th>
+                    <th>Status</th>
+                    <th>Settlement Action</th>
+                  </tr>
+                </thead>
+                <tbody id="table-payouts-body">
+                  <!-- Populated via JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+      </div> <!-- End portal-content-body -->
+    </main>
+  </div>
+
+  <!-- =========================================================================
+       INVOICE MODAL POPUP (PREVIEW & PRINT BILL)
+       ========================================================================= -->
+  <div id="invoice-modal" class="modal-backdrop" style="display: none;">
+    <div class="modal-box invoice-modal-box">
+      <div class="modal-header">
+        <h3>🧾 Tax Invoice Receipt</h3>
+        <button class="btn-close-modal" id="btn-close-invoice">✕</button>
+      </div>
+      <div class="invoice-printable" id="invoice-printable-content">
+        <!-- Injected via JS -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn-secondary" id="btn-close-invoice-footer">Close</button>
+        <button class="btn-primary" id="btn-print-invoice">🖨️ Print / Download Bill</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Overlay -->
+  <div class="admin-toast" id="admin-toast-message"></div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

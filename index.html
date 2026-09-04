@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agross - Farm to Fork Agricultural Ecosystem</title>
+  <meta name="description" content="Agross Agricultural Commerce Ecosystem connecting farmers directly to customers with centralized admin controls.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0A0F0D;
+      --bg-card: rgba(18, 26, 22, 0.75);
+      --bg-card-hover: rgba(26, 38, 32, 0.9);
+      --primary: #10B981;
+      --primary-glow: rgba(16, 185, 129, 0.35);
+      --accent: #34D399;
+      --gold: #F59E0B;
+      --text-main: #F3F4F6;
+      --text-muted: #9CA3AF;
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(16, 185, 129, 0.4);
+      --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(52, 211, 153, 0.08) 0%, transparent 45%);
+      background-attachment: fixed;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 2.5rem 2rem 1.5rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    .brand-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(16, 185, 129, 0.1);
+      border: 1px solid var(--border-accent);
+      padding: 0.4rem 1rem;
+      border-radius: 9999px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .brand-badge span.pulse {
+      width: 8px;
+      height: 8px;
+      background-color: var(--primary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--primary);
+      animation: pulseAnim 2s infinite;
+    }
+
+    @keyframes pulseAnim {
+      0% { opacity: 0.4; transform: scale(0.9); }
+      50% { opacity: 1; transform: scale(1.2); }
+      100% { opacity: 0.4; transform: scale(0.9); }
+    }
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      background: linear-gradient(135deg, #FFFFFF 0%, #A7F3D0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    p.subtitle {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 1rem 2rem 4rem;
+    }
+
+    .portal-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      gap: 2rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5), 0 0 30px var(--primary-glow);
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #FFF;
+      margin-bottom: 0.75rem;
+    }
+
+    .card-desc {
+      color: var(--text-muted);
+      font-size: 0.975rem;
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+      flex-grow: 1;
+    }
+
+    .card-features {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .card-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text-main);
+      margin-bottom: 0.6rem;
+    }
+
+    .card-features li::before {
+      content: '✓';
+      color: var(--primary);
+      font-weight: 800;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      width: 100%;
+      padding: 0.9rem 1.5rem;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+      color: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-primary:hover {
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+      transform: scale(1.02);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-main);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .preview-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      backdrop-filter: blur(16px);
+      margin-top: 1rem;
+    }
+
+    .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .preview-tabs {
+      display: flex;
+      gap: 0.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.35rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+
+    .tab-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: #FFF;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.4);
+    }
+
+    .iframe-wrapper {
+      width: 100%;
+      height: 680px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: #000;
+      position: relative;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      .portal-grid { grid-template-columns: 1fr; }
+      .iframe-wrapper { height: 500px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="brand-badge">
+      <span class="pulse"></span> Live Ecosystem Portal
+    </div>
+    <h1>🌱 Agross Platform</h1>
+    <p class="subtitle">
+      Farm to Fork Agricultural Commerce Ecosystem connecting local farmers directly with retail customers and real-time administration control.
+    </p>
+  </header>
+
+  <main>
+    <div class="portal-grid">
+      
+      <!-- Mobile App Preview Card -->
+      <div class="card">
+        <div>
+          <div class="card-icon">📱</div>
+          <h2 class="card-title">Mobile App Live Preview</h2>
+          <p class="card-desc">
+            Interactive dual-role app preview for Farmers & Customers with catalog, cart, bank details, and instant order placement.
+          </p>
+          <ul class="card-features">
+            <li>Farmer Product Listing & Payouts</li>
+            <li>Customer Shopping & Fast Checkout</li>
+            <li>Live Price Tracking & Market Averages</li>
+          </ul>
+        </div>
+        <a href="./app-preview/index.html" class="btn btn-primary" target="_blank">
+          Open App Preview ↗
+        </a>
+      </div>
+
+      <!-- Web Admin Portal Card -->
+      <div class="card">
+        <div>
+          <div class="card-icon">👑</div>
+          <h2 class="card-title">Web Admin Portal</h2>
+          <p class="card-desc">
+            Central management console for moderating farmers, approving accounts, tracking customer orders, and setting payouts.
+          </p>
+          <ul class="card-features">
+            <li>Farmer & Customer Account Approvals</li>
+            <li>Real-time Sales & Revenue Analytics</li>
+            <li>Order Settlement & Produce Moderation</li>
+          </ul>
+        </div>
+        <a href="./web-admin/index.html" class="btn btn-primary" target="_blank">
+          Open Admin Portal ↗
+        </a>
+      </div>
+
+      <!-- Backend REST API Card -->
+      <div class="card">
+        <div>
+          <div class="card-icon">🔌</div>
+          <h2 class="card-title">Backend REST API & Android App</h2>
+          <p class="card-desc">
+            Node.js / Express backend with MongoDB database models and full Native Android App (Jetpack Compose & Material 3).
+          </p>
+          <ul class="card-features">
+            <li>RESTful Endpoints (`/api/products`, `/api/bills`)</li>
+            <li>Native Kotlin Android App codebase</li>
+            <li>Data Persistence & JSON Fallback Engine</li>
+          </ul>
+        </div>
+        <a href="https://github.com" id="github-link" class="btn btn-secondary" target="_blank">
+          View GitHub Repository ↗
+        </a>
+      </div>
+
+    </div>
+
+    <!-- Live Interactive Embedded Preview Section -->
+    <div class="preview-section">
+      <div class="preview-header">
+        <h3 style="font-size: 1.25rem; font-weight: 700;">Live Interactive Workspace</h3>
+        <div class="preview-tabs">
+          <button class="tab-btn active" onclick="switchTab('app')">📱 Mobile App</button>
+          <button class="tab-btn" onclick="switchTab('admin')">👑 Web Admin</button>
+        </div>
+      </div>
+      <div class="iframe-wrapper">
+        <iframe id="preview-iframe" src="./app-preview/index.html"></iframe>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 Agross Platform - Farm to Fork Agricultural Ecosystem. Built for seamless scaling.</p>
+  </footer>
+
+  <script>
+    function switchTab(type) {
+      const iframe = document.getElementById('preview-iframe');
+      const buttons = document.querySelectorAll('.tab-btn');
+      
+      buttons.forEach(btn => btn.classList.remove('active'));
+
+      if (type === 'app') {
+        iframe.src = './app-preview/index.html';
+        buttons[0].classList.add('active');
+      } else if (type === 'admin') {
+        iframe.src = './web-admin/index.html';
+        buttons[1].classList.add('active');
+      }
+    }
+  </script>
+</body>
+</html>
