@@ -2786,6 +2786,9 @@ function renderLogin() {
 
         showToast(`Welcome back, ${state.loggedInUser}!`);
         navigateTo('dashboard');
+      } else {
+        showToast(data.message || 'Login failed. Please verify credentials.');
+      }
     } catch (err) {
       // Offline / Static Live Demo Login Fallback
       state.pendingApprovalNotice = null;
