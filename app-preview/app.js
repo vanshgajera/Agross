@@ -2784,11 +2784,26 @@ function renderLogin() {
 
         showToast(`Welcome back, ${state.loggedInUser}!`);
         navigateTo('dashboard');
-      } else {
-        showToast(data.message || 'Login failed. Please verify credentials.');
-      }
     } catch (err) {
-      showToast('Error connecting to backend database');
+      // Offline / Static Live Demo Login Fallback
+      state.pendingApprovalNotice = null;
+      state.currentRole = state.loginRole;
+      state.loggedInUser = identifier || (state.loginRole === 'FARMER' ? 'Ramesh Patel' : 'Vansh Gajera');
+      state.loggedInUserObj = {
+        name: state.loggedInUser,
+        mobile: identifier || '9876543210',
+        city: 'Surat, Gujarat',
+        deliveryAddress: 'Ring Road, Surat'
+      };
+
+      setAuthCookie('agross_auth_session', {
+        role: state.loginRole,
+        name: state.loggedInUser,
+        userObj: state.loggedInUserObj
+      });
+
+      showToast(`Welcome back, ${state.loggedInUser}!`);
+      navigateTo('dashboard');
     }
   });
 }
