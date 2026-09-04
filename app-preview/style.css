@@ -2012,3 +2012,75 @@ body {
   color: #78350F !important;
   font-weight: 800 !important;
 }
+
+/* =========================================================================
+ * REAL MOBILE PHONE FULL-SCREEN RESPONSIVE LAYOUT
+ * ========================================================================= */
+@media (max-width: 768px) {
+  html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background: #F8FAFC !important;
+  }
+
+  .workbench-bg {
+    padding: 0 !important;
+    background: #F8FAFC !important;
+    min-height: 100vh !important;
+    display: block !important;
+  }
+
+  .workbench-header {
+    display: none !important;
+  }
+
+  .workbench-viewport {
+    padding: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    display: block !important;
+  }
+
+  .device-frame {
+    width: 100vw !important;
+    height: 100vh !important;
+    max-width: 100% !important;
+    max-height: 100% !important;
+    border-radius: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  .device-notch {
+    display: none !important;
+  }
+
+  .device-status-bar {
+    height: 36px !important;
+    padding: 4px 16px 0 16px !important;
+    font-size: 11px !important;
+  }
+
+  .app-screen-container {
+    height: calc(100vh - 36px) !important;
+  }
+
+  .top-bar {
+    padding: 10px 14px !important;
+  }
+
+  .app-body-scrollable {
+    padding: 12px 14px 80px 14px !important;
+  }
+
+  .produce-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+  }
+
+  .produce-card {
+    padding: 10px !important;
+  }
+}
+
